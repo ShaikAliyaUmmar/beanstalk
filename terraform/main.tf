@@ -74,5 +74,3 @@ resource "aws_elastic_beanstalk_environment" "my_env" {
     value     = aws_launch_template.beanstalk_template.id
   }
 }
-
-has context menu

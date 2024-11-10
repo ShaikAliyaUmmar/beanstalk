@@ -36,7 +36,7 @@ resource "aws_elastic_beanstalk_environment" "my_env" {
   name                   = "my-sample-env"
   application            = aws_elastic_beanstalk_application.my_app.name
   solution_stack_name    = "64bit Amazon Linux 2023 v4.3.0 running Python 3.12"  # Use an available stack
-  #wait_for_ready_timeout  = "20m"  # Optional
+  wait_for_ready_timeout  = "5m"  # Optional
  
   setting {
     namespace = "aws:elasticbeanstalk:environment"

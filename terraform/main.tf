@@ -10,21 +10,22 @@ resource "aws_elastic_beanstalk_application" "example" {
  
 # Elastic Beanstalk Environment
 resource "aws_elastic_beanstalk_environment" "example_env" {
-  name                = "simple-env"
-  application         = aws_elastic_beanstalk_application.example.name
-  #platform_arn = "arn:aws:elasticbeanstalk:region::platform/Python 3.12 running on 64bit Amazon Linux 2/version"
-  platform_arn = "arn:aws:elasticbeanstalk:us-east-1::platform/Python 3.8 running on 64bit Amazon Linux 2"
-
-  # Enable the sample application provided by AWS
+  name                   = "simple-env"
+  application            = aws_elastic_beanstalk_application.example.name
+  solution_stack_name    = "64bit Amazon Linux 2 running Python 3.8"  # Ensure this matches an available stack in us-east-1
+  wait_for_ready_timeout = "20m"
+ 
+  # Environment configuration settings
   setting {
-    namespace = "aws:elasticbeanstalk:application"
+    namespace = "aws:elasticbeanstalk:environment"
     name      = "EnvironmentType"
     value     = "SingleInstance"
   }
  
+  # Sample Application (optional, remove if unnecessary)
   setting {
-    namespace = "aws:elasticbeanstalk:application"
-    name      = "ApplicationName"
-    value     = "Sample Application"  # Specifies AWS's default sample application
+    namespace = "aws:elasticbeanstalk:environment"
+    name      = "Application Healthcheck URL"
+    value     = "/"
   }
 }

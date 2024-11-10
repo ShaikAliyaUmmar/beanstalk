@@ -42,8 +42,8 @@ resource "aws_iam_instance_profile" "eb_instance_profile" {
 resource "aws_elastic_beanstalk_environment" "example_env" {
   name                = "simple-env"
   application         = aws_elastic_beanstalk_application.example.name
-  solution_stack_name = "64bit Amazon Linux 2 running Python 3.8"
-  wait_for_ready_timeout = "20m"
+  solution_stack_name = "64bit Amazon Linux 2023 v4.3.0 running Python 3.12"
+  #wait_for_ready_timeout = "20m"
  
   # Associate instance profile
   setting {

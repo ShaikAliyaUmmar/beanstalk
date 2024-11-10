@@ -12,7 +12,7 @@ resource "aws_elastic_beanstalk_application" "example" {
 resource "aws_elastic_beanstalk_environment" "example_env" {
   name                = "simple-env"
   application         = aws_elastic_beanstalk_application.example.name
-  aws elasticbeanstalk list-platform-versions --filters "PlatformName=Python" "PlatformVersion=3.12"
+  solution_stack_name = "Python 3.12 running on 64bit Amazon Linux 2"  # Example stack name
  
   # Enable the sample application provided by AWS
   setting {

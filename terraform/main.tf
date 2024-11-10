@@ -12,7 +12,7 @@ resource "aws_elastic_beanstalk_application" "example" {
 resource "aws_elastic_beanstalk_environment" "example_env" {
   name                = "simple-env"
   application         = aws_elastic_beanstalk_application.example.name
-  solution_stack_name = "64bit Amazon Linux 2 v3.4.10 running Python 3.8"  # Use an available platform
+  solution_stack_name = "Python 3.12 running on 64bit Amazon Linux 2023 4.3.0"  # Use an available platform
  
   # Enable the sample application provided by AWS
   setting {

@@ -21,11 +21,4 @@ resource "aws_elastic_beanstalk_environment" "example_env" {
     name      = "EnvironmentType"
     value     = "SingleInstance"
   }
- 
-  # Sample Application (optional, remove if unnecessary)
-  setting {
-    namespace = "aws:elasticbeanstalk:environment"
-    name      = "Application Healthcheck URL"
-    value     = "/"
-  }
 }
